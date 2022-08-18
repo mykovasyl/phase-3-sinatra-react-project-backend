@@ -45,4 +45,10 @@ class ApplicationController < Sinatra::Base
     chore_to_delete.to_json
   end
 
+  delete "/children/:id" do
+    child_to_delete = Child.find(params[:id])
+    child_to_delete.destroy
+    child_to_delete.to_json
+  end
+
 end
