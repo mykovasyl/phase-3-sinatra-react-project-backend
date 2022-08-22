@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_12_152638) do
+ActiveRecord::Schema.define(version: 2022_08_22_144440) do
 
   create_table "children", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2022_08_12_152638) do
     t.integer "points"
     t.string "due_by"
     t.integer "child_id"
+    t.boolean "completed", default: false
   end
 
 end
