@@ -13,19 +13,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/chores' do
-    chore_to_add = Chore.create(
-      name: params[:name],
-      points: params[:points],
-      due_by: params[:dueBy],
-      child_id: params[:childId]
-    )
+    chore_to_add = Chore.create(params)
     chore_to_add.to_json
   end
 
   post '/children' do
-    child_to_add = Child.create(
-      name: params[:name]
-    )
+    child_to_add = Child.create(name: params[:name])
     child_to_add.to_json
   end
 
