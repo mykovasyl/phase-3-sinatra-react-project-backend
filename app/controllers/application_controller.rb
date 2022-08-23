@@ -12,14 +12,22 @@ class ApplicationController < Sinatra::Base
     chores.to_json
   end
 
+  post '/children' do
+    child_to_add = Child.create(name: params[:name])
+    child_to_add.to_json
+  end
+
   post '/chores' do
     chore_to_add = Chore.create(params)
     chore_to_add.to_json
   end
 
-  post '/children' do
-    child_to_add = Child.create(name: params[:name])
-    child_to_add.to_json
+  patch '/children/:id' do
+    child_to_edit = Child.find(params[:id])
+    child_to_edit.update(
+      name: params[:name]
+    )
+    child_to_edit.to_json
   end
 
   patch '/chores/:id' do
