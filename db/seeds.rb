@@ -24,7 +24,7 @@ Chore.create(
   name: "Wash dishes",
   points: 5,
   due_by: "2022-09-05",
-  child_id: 15,
+  child_id: 30,
   completed: false
 )
 Chore.create(
