@@ -1,5 +1,10 @@
-class ChildController < Sinatra::Base
+class ChildrenController < ApplicationController
   set :default_content_type, 'application/json'
+
+  get '/children' do
+    children = Child.all 
+    children.to_json(:include => [:chores])
+  end
 
   post '/children' do
     child_to_add = Child.create(name: params[:name])
@@ -17,7 +22,6 @@ class ChildController < Sinatra::Base
   delete '/children/:id' do
     child_to_delete = Child.find(params[:id])
     child_to_delete.destroy
-    child_to_delete.to_json
   end
 
 end

@@ -1,5 +1,10 @@
-class ChoreController < Sinatra::Base
+class ChoresController < ApplicationController
   set :default_content_type, 'application/json'
+
+  get '/chores' do
+    chores = Chore.all
+    chores.to_json(:include => [:child])
+  end
 
   post '/chores' do
     chore_to_add = Chore.create(params)
