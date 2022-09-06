@@ -8,7 +8,7 @@ class ChoresController < ApplicationController
 
   post '/chores' do
     chore_to_add = Chore.create(params)
-    chore_to_add.to_json
+    chore_to_add.to_json(:include => [:child])
   end
 
   patch '/chores/:id' do
